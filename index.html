@@ -11,15 +11,20 @@
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/core-ajax/core-ajax.html">
 </head>
 
 <body fullbleed vertical layout>
+  <core-ajax auto url="sampleData.json" handleAs="json"></core-ajax>
+
   <core-header-panel flex>
     <core-toolbar>
       <div id="title" flex>Shopping List</div>
       <core-icon-button icon="add"></core-icon-button>
     </core-toolbar>
-    <div class="content"></div>
+    <div class="content">
+      <template repeat="{{response}}">{{name}} ({{age}})<br></template>
+    </div>
   </core-header-panel>
     
   <script src="main.js"></script>
