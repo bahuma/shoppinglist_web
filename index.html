@@ -12,6 +12,7 @@
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-ajax/core-ajax.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
 </head>
 
 <body fullbleed vertical layout>
@@ -23,7 +24,9 @@
       <core-icon-button icon="add"></core-icon-button>
     </core-toolbar>
     <div class="content">
-      <template repeat="{{response}}">{{name}} ({{age}})<br></template>
+      <template repeat="{{response}}">
+        <paper-item>{{name}}</paper-item>
+      </template>
     </div>
   </core-header-panel>
     

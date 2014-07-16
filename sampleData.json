@@ -1,10 +1,22 @@
 [
   {
-    "name": "Günther",
-    "age": 19
+    "id":"39",
+    "name":"Brot",
+    "status":"1"
   },
   {
-    "name": "Melanie",
-    "age": 12
+    "id":"40",
+    "name":"Milch",
+    "status":"0"
+  },
+  {
+    "id":"41",
+    "name":"K\u00e4se",
+    "status":"0"
+  },
+  {
+    "id":"42",
+    "name":"Eier",
+    "status":"1"
   }
 ]
