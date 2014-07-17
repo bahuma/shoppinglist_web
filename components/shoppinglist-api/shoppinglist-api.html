@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<polymer-element name="shoppinglist-api">
+  <script>
+    Polymer('shoppinglist-api', {
+      ready: function() {
+        this.ajax = document.createElement('core-ajax');
+      },
+      loadShops: function (callback) {
+        this.ajax.handleAs = 'json';
+        this.ajax.url = 'http://api.bahuma-online.de/einkaufszettel/v2/items?shop=2';
+        
+        this.ajax.addEventListener('core-response', function (e) {
+          callback(this.response);
+        })
+        
+        this.ajax.go();
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,16 +1,23 @@
-window.addEventListener('polymer-ready', function(e) {
-  var ajax = document.querySelector('core-ajax');
-  
-  ajax.addEventListener('core-response', function(e) {
-   console.log(this.response); 
-   document.querySelector('template').model = {
-     response: this.response
-   }
-  });
-});
-
 function toggleDialog(querySelector) {
   var dialog = document.querySelector(querySelector);
   
   dialog.toggle();
 }
+
+function addShop() {
+  console.log(document.querySelector('#shopname').value);
+}
+
+window.addEventListener('polymer-ready', function(e) {
+  
+  var shoppingListApi = document.querySelector('shoppinglist-api');
+  
+  shoppingListApi.loadShops(function(response) {
+    document.querySelector('template#listitem').model = {
+      response: response
+    }
+  })
+  
+ 
+  
+});

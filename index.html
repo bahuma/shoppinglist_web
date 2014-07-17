@@ -13,29 +13,30 @@
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-  <link rel="import" href="bower_components/core-ajax/core-ajax.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
   <link rel="import" href="bower_components/paper-dialog/paper-dialog-transition.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="components/shoppinglist-api/shoppinglist-api.html"
 </head>
 
 <body fullbleed vertical layout>
-  <core-ajax auto url="http://api.bahuma-online.de/einkaufszettel/v2/shops" handleAs="json"></core-ajax>
+  <shoppinglist-api></shoppinglist-api>
   
   <paper-dialog id="add-shop" heading="Add Shop" transition="paper-dialog-transition-bottom">
-    <p>Blablabla</p>
-    <paper-button label="Decline" affirmative></paper-button>
-    <paper-button label="Accept" affirmative autofocus></paper-button>
+    <paper-input id="shopname" label="Name of the Shop" autofocus></paper-input>
+    <paper-button label="Cancel" affirmative></paper-button>
+    <paper-button label="Add" affirmative onclick="addShop()"></paper-button>
   </paper-dialog>
   
   <core-header-panel flex>
     <core-toolbar>
       <div id="title" flex>Shopping List</div>
-      <paper-icon-button icon="add" role="button" onclick="toggleDialog('#add-shop')"></paper-icon-button>
+      <paper-icon-button icon="add" onclick="toggleDialog('#add-shop')"></paper-icon-button>
     </core-toolbar>
     <div class="content">
-      <template repeat="{{response}}">
+      <template id="listitem" repeat="{{response}}">
         <paper-item>{{name}}</paper-item>
       </template>
     </div>
