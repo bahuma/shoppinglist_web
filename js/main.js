@@ -8,3 +8,9 @@ window.addEventListener('polymer-ready', function(e) {
    }
   });
 });
+
+function showDialog(querySelector) {
+  var dialog = document.querySelector(querySelector);
+  
+  dialog.toggle();
+}
