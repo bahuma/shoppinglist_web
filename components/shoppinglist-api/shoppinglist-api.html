@@ -4,14 +4,14 @@
     Polymer('shoppinglist-api', {
       ready: function() {
         this.ajax = document.createElement('core-ajax');
+        this.ajax.handleAs = 'json';
       },
       loadShops: function (callback) {
-        this.ajax.handleAs = 'json';
-        this.ajax.url = 'http://api.bahuma-online.de/einkaufszettel/v2/items?shop=2';
+        this.ajax.url = 'http://api.bahuma-online.de/einkaufszettel/v2/shops';
         
         this.ajax.addEventListener('core-response', function (e) {
           callback(this.response);
-        })
+        });
         
         this.ajax.go();
       }
