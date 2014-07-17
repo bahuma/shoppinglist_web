@@ -9,7 +9,7 @@ window.addEventListener('polymer-ready', function(e) {
   });
 });
 
-function showDialog(querySelector) {
+function toggleDialog(querySelector) {
   var dialog = document.querySelector(querySelector);
   
   dialog.toggle();
