@@ -3,7 +3,7 @@
 <polymer-element name="shoppinglist-api" attributes="baseurl">
   <script>
     Polymer('shoppinglist-api', {
-      baseurl: 'http://api.bahuma-online.de/einkaufszettel/v2',
+      baseurl: 'http://node-shoppinglist-api.herokuapp.com/api',
       ready: function() {
         this.ajax = document.createElement('core-ajax');
         this.ajax.handleAs = 'json';
@@ -18,7 +18,7 @@
         console.log(this.ajax.go().responseText);
       },
       loadItems: function (shop, callback) {
-        this.ajax.url = this.baseurl + '/items?shop=' + shop;
+        this.ajax.url = this.baseurl + '/shops/' + shop + '/items';
         
         this.ajax.addEventListener('core-response', function (e) {
           callback(e.detail.response);
@@ -29,10 +29,11 @@
       addShop: function(name, callback) {
         this.ajax.method = 'POST';
         this.ajax.url = this.baseurl + '/shops';
-        this.ajax.body = '{"name": ' + name + '}';
-        
-        this.ajax.addEventListener('core-response', function(e) {
-          callback(e.detail.response);
+        this.ajax.params = {
+          "name": name
+        }
+        this.ajax.addEventListener('core-response', function(data) {
+          callback(data.detail.response);
         });
         
         this.ajax.go();

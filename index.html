@@ -22,7 +22,7 @@
 </head>
 
 <body fullbleed vertical layout>
-  <shoppinglist-api baseurl="http://api.bahuma-online.de/einkaufszettel/v2"></shoppinglist-api>
+  <shoppinglist-api baseurl="http://node-shoppinglist-api.herokuapp.com/api"></shoppinglist-api>
   
   <paper-dialog id="add-shop" heading="Add Shop" transition="paper-dialog-transition-bottom">
     <paper-input id="shopname" label="Name of the Shop" autofocus></paper-input>
@@ -36,7 +36,7 @@
       <paper-icon-button icon="add" onclick="toggleDialog('#add-shop')"></paper-icon-button>
     </core-toolbar>
     <div class="content">
-      <template id="listitem" repeat="{{response}}">
+      <template id="listitem" repeat="{{items}}">
         <paper-item>{{name}}</paper-item>
       </template>
     </div>
